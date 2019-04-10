@@ -1,0 +1,10 @@
+pipeline:
+  deploy_prod:
+    image: appleboy/drone-ssh
+    host: 18.188.144.204
+    secrets: [ ssh_username, ssh_password ]
+    port: 22
+    script:
+      - cd /var/www/html/travis  && git pull origin  master
+    when:
+      branch: master

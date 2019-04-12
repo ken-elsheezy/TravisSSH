@@ -8,3 +8,6 @@ pipeline:
       - cd /var/www/html/travis  && git pull origin  master
     when:
       branch: master
+
+
+      

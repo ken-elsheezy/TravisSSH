@@ -5,7 +5,7 @@ pipeline:
     secrets: [ ssh_username, ssh_password ]
     port: 22
     script:
-      - cd /var/www/html/travis  && git pull origin  master
+      - cd /var/www/html/travis  && sudo git pull origin  master
     when:
       branch: master
 

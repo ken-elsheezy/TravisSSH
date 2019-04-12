@@ -1,9 +1,3 @@
-kind: pipeline
-name: default
-
-platform:
-  os: linux
-
 pipeline:
   deploy_prod:
     image: appleboy/drone-ssh

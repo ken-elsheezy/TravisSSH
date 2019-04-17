@@ -7,10 +7,29 @@ branches:
   only:
     - staging
     - master
+    - production
+
+before_script:
+  - echo 'construct general dependencies here before building on the designated branch'
+
+script:
+  - if [ $TRAVIS_BRANCH == "staging" ]; then
+        echo 'staging build';
+    fi
+  - if [ $TRAVIS_PULL_REQUEST == true && $TRAVIS_BRANCH == "master" ]; then
+        echo 'master build';
+    fi
+  - if [ $TRAVIS_PULL_REQUEST == true && $TRAVIS_BRANCH == "production" ]; then
+        echo 'production build';
+    fi
 
 after_script:
-  - echo 'before master'
-script:
-  - echo 'we are at master'
-after_script:
-  - echo 'done master'
+  - if [ $TRAVIS_BRANCH == "staging" ]; then
+        echo 'deploy app to staging environment with forge';
+    fi
+  - if [ $TRAVIS_BRANCH == "master" ]; then
+        echo 'deploy app to development environment with forge';
+    fi
+  - if [ $TRAVIS_BRANCH == "production" ]; then
+        echo 'deploy app to production environment with forge';
+    fi

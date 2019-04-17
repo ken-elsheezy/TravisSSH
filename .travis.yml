@@ -8,9 +8,14 @@ branches:
     - staging
     - master
 
-after_script:
+before_script:
   - echo 'before master'
+
 script:
-  - echo 'we are at master'
+  if: (branch = staging)
+    - echo 'staging build'
+  if: (branch = master) AND (NOT (type IN (push, pull_request)))
+    - echo 'master build'
+
 after_script:
   - echo 'done master'

@@ -7,16 +7,10 @@ branches:
   only:
     - staging
     - master
-    - production
 
-if: (branch = staging)
-  script:
-    - echo 'we are at staging'
-  after_script:
-    - echo 'done staging'
-
-if: (branch = master)
-  script:
-    - echo 'we are at master'
-  after_script:
-    - echo 'done master'
+after_script:
+  - echo 'before master'
+script:
+  - echo 'we are at master'
+after_script:
+  - echo 'done master'

@@ -1,20 +1,22 @@
-language: node_js
+language: php
 
-node_js:
-- node
+php:
+  - 7.1.9
 
-env:
-- SERVER_IP_ADDRESS=18.217.253.185
+branches:
+  only:
+    - staging
+    - master
+    - production
 
-before_install:
-- eval "$(ssh-agent -s)"
-- echo -e "Host $SERVER_IP_ADDRESS\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
-- openssl aes-256-cbc -K $encrypted_71597800fa05_key -iv $encrypted_71597800fa05_iv
-  -in deploy_key.enc -out ./deploy_key -d
-- chmod 600 ./deploy_key  
-- ssh-add ./deploy_key
-- ssh -i ./deploy_key ubuntu@18.217.253.185 pwd
+if: (branch = staging)
+  script:
+    - echo 'we are at staging'
+  after_script:
+    - echo 'done staging'
 
-after_success:
-- echo "build complete kenvin"
-
+if: (branch = master)
+  script:
+    - echo 'we are at master'
+  after_script:
+    - echo 'done master'

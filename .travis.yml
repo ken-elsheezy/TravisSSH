@@ -14,7 +14,7 @@ before_script:
 
 script:
   - if [ $TRAVIS_BRANCH == "staging" ]; then
-        echo 'staging build';
+        echo 'staging build'; echo 'demonstrating multiple block executions';
     fi
   - if [ $TRAVIS_PULL_REQUEST == true && $TRAVIS_BRANCH == "master" ]; then
         echo 'master build';

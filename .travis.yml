@@ -9,13 +9,15 @@ branches:
     - master
 
 before_script:
-  - echo 'before master'
+  - echo 'before building on the designated branch'
 
 script:
-  if: (branch = staging)
-    - echo 'staging build'
-  if: (branch = master) AND (NOT (type IN (push, pull_request)))
-    - echo 'master build'
+  - if [ $TRAVIS_BRANCH == "staging" ]; then
+        echo 'staging build';
+    fi
+  - if [ $TRAVIS_BRANCH == "master" ]; then
+        echo 'master build';
+    fi
 
 after_script:
-  - echo 'done master'
+  - echo 'after building on associated branch';

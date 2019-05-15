@@ -8,6 +8,10 @@ branches:
     - staging
     - master
     - production
+    
+#env:
+#  - VARIABLE = "config 1"  
+#  - VARIABLE = "config 2"   
 
 before_script:
   - echo 'construct general dependencies here before building on the designated branch'

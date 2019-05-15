@@ -8,13 +8,17 @@ branches:
     - staging
     - master
     - production
+    
+#env:
+#  - VARIABLE = "config 1"  
+#  - VARIABLE = "config 2"   
 
 before_script:
   - echo 'construct general dependencies here before building on the designated branch'
 
 script:
   - if [ $TRAVIS_BRANCH == "staging" ]; then
-        echo 'staging build';
+        echo 'staging build'; echo 'demonstrating multiple block executions';
     fi
   - if [ $TRAVIS_PULL_REQUEST == true && $TRAVIS_BRANCH == "master" ]; then
         echo 'master build';

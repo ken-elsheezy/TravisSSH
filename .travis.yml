@@ -11,7 +11,9 @@ branches:
     
 #env:
 #  - VARIABLE = "config 1"  
-#  - VARIABLE = "config 2"   
+#  - VARIABLE = "config 2"
+
+#find a way to sum up coveralls for 2 seperate builds   
 
 before_script:
   - echo 'construct general dependencies here before building on the designated branch'

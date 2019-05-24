@@ -12,6 +12,9 @@ branches:
 #env:
 #  - VARIABLE = "config 1"  
 #  - VARIABLE = "config 2"
+#  - VARIABLE = "config 3"
+#  - VARIABLE = "config 4"
+
 
 #find a way to sum up coveralls for 2 seperate builds   
 
